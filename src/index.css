@@ -1,86 +1,86 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 160 17% 84%;  /* #D2D9D4 - light-sage */
+    --foreground: 210 22% 16%;  /* #202931 - marine */
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 210 22% 16%;  /* marine */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 22% 16%;  /* marine */
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 196 70% 23%;   /* #114E65 - teal-blue */
+    --primary-foreground: 160 17% 84%;  /* light-sage */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 181 13% 51%;  /* #738D92 - sage */
+    --secondary-foreground: 210 22% 16%;  /* marine */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 160 17% 94%;  /* lighter light-sage */
+    --muted-foreground: 215 14% 34%;  /* #2F3943 - slate-blue */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 181 13% 51%;  /* sage */
+    --accent-foreground: 210 22% 16%;  /* marine */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 181 13% 80%;  /* lighter sage */
+    --input: 181 13% 80%;  /* lighter sage */
+    --ring: 196 70% 23%;  /* teal-blue */
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 210 22% 16%;  /* marine */
+    --sidebar-foreground: 160 17% 84%;  /* light-sage */
+    --sidebar-primary: 196 70% 23%;  /* teal-blue */
+    --sidebar-primary-foreground: 160 17% 84%;  /* light-sage */
+    --sidebar-accent: 215 14% 34%;  /* slate-blue */
+    --sidebar-accent-foreground: 160 17% 84%;  /* light-sage */
+    --sidebar-border: 215 14% 34%;  /* slate-blue */
+    --sidebar-ring: 196 70% 33%;  /* lighter teal-blue */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 210 22% 16%;  /* marine */
+    --foreground: 160 17% 84%;  /* light-sage */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 22% 16%;  /* marine */
+    --card-foreground: 160 17% 84%;  /* light-sage */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 22% 16%;  /* marine */
+    --popover-foreground: 160 17% 84%;  /* light-sage */
 
-    --primary: 210 100% 50%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 196 70% 23%;  /* teal-blue */
+    --primary-foreground: 160 17% 84%;  /* light-sage */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 215 14% 34%;  /* slate-blue */
+    --secondary-foreground: 160 17% 84%;  /* light-sage */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 14% 24%;  /* darker slate-blue */
+    --muted-foreground: 181 13% 71%;  /* lighter sage */
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 215 14% 34%;  /* slate-blue */
+    --accent-foreground: 160 17% 84%;  /* light-sage */
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 160 17% 84%;  /* light-sage */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 215 14% 34%;  /* slate-blue */
+    --input: 215 14% 34%;  /* slate-blue */
+    --ring: 181 13% 51%;  /* sage */
+
+    --sidebar-background: 215 14% 34%;  /* slate-blue */
+    --sidebar-foreground: 160 17% 84%;  /* light-sage */
+    --sidebar-primary: 196 70% 23%;  /* teal-blue */
+    --sidebar-primary-foreground: 160 17% 84%;  /* light-sage */
+    --sidebar-accent: 210 22% 26%;  /* lighter marine */
+    --sidebar-accent-foreground: 160 17% 84%;  /* light-sage */
+    --sidebar-border: 210 22% 26%;  /* lighter marine */
+    --sidebar-ring: 196 70% 33%;  /* lighter teal-blue */
   }
 }
 
