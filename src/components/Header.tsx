@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -24,11 +24,11 @@ const Header = () => {
   }, [location]);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "About", href: "/about" },
+    { name: "Testimonials", href: "/testimonials" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -43,29 +43,36 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0">
-            <a href="#" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <span className="text-xl font-bold text-primary tracking-tight">
                 AMP
               </span>
               <span className="text-xl font-medium ml-1">Training</span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="nav-link text-foreground/80 hover:text-foreground"
+                to={link.href}
+                className={cn(
+                  "nav-link hover:text-foreground transition-colors",
+                  location.pathname === link.href 
+                    ? "text-primary font-medium" 
+                    : "text-foreground/80"
+                )}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
           <div className="hidden md:block">
-            <Button>Get Started</Button>
+            <Link to="/contact">
+              <Button>Get Started</Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -87,16 +94,23 @@ const Header = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-background shadow-lg rounded-b-lg mx-4 animate-fade-in">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-primary/10"
+                to={link.href}
+                className={cn(
+                  "block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10",
+                  location.pathname === link.href 
+                    ? "text-primary" 
+                    : "text-foreground"
+                )}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
             <div className="pt-2">
-              <Button className="w-full">Get Started</Button>
+              <Link to="/contact">
+                <Button className="w-full">Get Started</Button>
+              </Link>
             </div>
           </div>
         </div>
