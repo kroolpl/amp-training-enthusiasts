@@ -1,9 +1,17 @@
-
 import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { 
+  Menu, 
+  X, 
+  Home,
+  GraduationCap,
+  Info,
+  Phone,
+  ArrowRight
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/images/logo.svg";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,11 +32,26 @@ const Header = () => {
   }, [location]);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "Contact", href: "/contact" },
+    { 
+      name: "Home", 
+      href: "/",
+      icon: <Home className="h-4 w-4" />
+    },
+    { 
+      name: "Training Solutions", 
+      href: "/courses",
+      icon: <GraduationCap className="h-4 w-4" />
+    },
+    { 
+      name: "About", 
+      href: "/about",
+      icon: <Info className="h-4 w-4" />
+    },
+    { 
+      name: "Contact", 
+      href: "/contact",
+      icon: <Phone className="h-4 w-4" />
+    }
   ];
 
   return (
@@ -44,10 +67,12 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center">
-              <span className="text-xl font-bold text-primary tracking-tight">
-                AMP
-              </span>
-              <span className="text-xl font-medium ml-1">Training</span>
+              <img 
+                src={logo} 
+                alt="AMP Training Solutions" 
+                className="h-10 w-10 object-contain"
+              />
+              <span className="text-xl font-medium ml-2">Training</span>
             </Link>
           </div>
 
@@ -58,12 +83,20 @@ const Header = () => {
                 key={link.name}
                 to={link.href}
                 className={cn(
-                  "nav-link hover:text-foreground transition-colors",
+                  "nav-link hover:text-foreground transition-colors flex items-center gap-2 group",
                   location.pathname === link.href 
                     ? "text-primary font-medium" 
                     : "text-foreground/80"
                 )}
               >
+                <span className={cn(
+                  "transition-colors",
+                  location.pathname === link.href 
+                    ? "text-primary" 
+                    : "text-foreground/60 group-hover:text-foreground/80"
+                )}>
+                  {link.icon}
+                </span>
                 {link.name}
               </Link>
             ))}
@@ -71,7 +104,10 @@ const Header = () => {
 
           <div className="hidden md:block">
             <Link to="/contact">
-              <Button>Get Started</Button>
+              <Button className="group">
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
             </Link>
           </div>
 
@@ -98,18 +134,29 @@ const Header = () => {
                 key={link.name}
                 to={link.href}
                 className={cn(
-                  "block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10",
+                  "block px-3 py-2 rounded-md text-base font-medium hover:bg-primary/10 flex items-center gap-3",
                   location.pathname === link.href 
                     ? "text-primary" 
                     : "text-foreground"
                 )}
               >
+                <span className={cn(
+                  "transition-colors",
+                  location.pathname === link.href 
+                    ? "text-primary" 
+                    : "text-foreground/60"
+                )}>
+                  {link.icon}
+                </span>
                 {link.name}
               </Link>
             ))}
             <div className="pt-2">
               <Link to="/contact">
-                <Button className="w-full">Get Started</Button>
+                <Button className="w-full group">
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Button>
               </Link>
             </div>
           </div>

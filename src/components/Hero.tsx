@@ -1,8 +1,9 @@
-
 import { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
+import heroImage from '@/images/FA.webp';
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -34,7 +35,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="min-h-screen pt-20 flex items-center relative overflow-hidden"
+      className="min-h-[90vh] lg:min-h-screen pt-24 lg:pt-0 flex items-center relative overflow-hidden"
       ref={containerRef}
     >
       {/* Background */}
@@ -44,79 +45,85 @@ const Hero = () => {
           className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_calc(50%_+_var(--mouse-x,_0.5)*50%_-_25%)_calc(50%_+_var(--mouse-y,_0.5)*50%_-_25%)),hsl(var(--primary))_0%,transparent_50%)]"
           style={{ '--mouse-x': '0.5', '--mouse-y': '0.5' } as React.CSSProperties}
         ></div>
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       </div>
 
-      <div className="section-container relative">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-          <div className="md:col-span-7 space-y-8">
-            <div>
+      <div className="section-container relative px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Content Column */}
+          <div className="lg:col-span-7 space-y-6 lg:space-y-8 text-center lg:text-left">
+            <div className="space-y-4 lg:space-y-6">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
+                className="flex justify-center lg:justify-start"
               >
-                <div className="inline-block">
-                  <span className="badge-tag">22+ Years of Excellence</span>
-                </div>
+                <span className="badge-tag inline-block">Nationally Accredited Training</span>
               </motion.div>
               
               <motion.h1 
-                className="mt-4 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-900 text-balance"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 text-balance max-w-3xl mx-auto lg:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                Professional <span className="text-gradient">Health & Safety</span> Training Solutions
+                Safety Training That <span className="text-gradient">Saves Lives</span>
               </motion.h1>
               
               <motion.p 
-                className="mt-6 text-lg md:text-xl text-gray-600 text-balance"
+                className="text-lg lg:text-xl text-gray-600 text-balance max-w-2xl mx-auto lg:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Delivering expert health and safety training across Wales and England with a focus on quality, flexibility, and customized solutions.
+                Equip your team with life-saving skills through our industry-leading training programs. From first aid to fire safety, we deliver practical knowledge that creates safer workplaces and confident responders.
               </motion.p>
             </div>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Button size="lg" className="text-sm md:text-base">
-                Explore Our Courses
-              </Button>
-              <Button variant="outline" size="lg" className="text-sm md:text-base">
-                Contact Us
-              </Button>
+              <Link to="/courses" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto text-base">
+                  Explore Our Courses
+                </Button>
+              </Link>
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto text-base">
+                  Contact Us Today
+                </Button>
+              </Link>
             </motion.div>
             
             <motion.div 
-              className="pt-4 flex items-center gap-x-8"
+              className="pt-6 lg:pt-8 flex items-center justify-center lg:justify-start gap-8 lg:gap-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              <div className="flex flex-col">
-                <span className="font-bold text-3xl text-primary">22+</span>
-                <span className="text-sm text-gray-600">Years Experience</span>
+              <div className="flex flex-col items-center lg:items-start">
+                <span className="font-bold text-3xl lg:text-4xl text-primary">22+</span>
+                <span className="text-sm lg:text-base text-gray-600">Years Experience</span>
               </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-3xl text-primary">100+</span>
-                <span className="text-sm text-gray-600">Satisfied Clients</span>
+              <div className="flex flex-col items-center lg:items-start">
+                <span className="font-bold text-3xl lg:text-4xl text-primary">4</span>
+                <span className="text-sm lg:text-base text-gray-600">Key Training Areas</span>
               </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-3xl text-primary">50+</span>
-                <span className="text-sm text-gray-600">Training Courses</span>
+              <div className="flex flex-col items-center lg:items-start">
+                <span className="font-bold text-3xl lg:text-4xl text-primary">50+</span>
+                <span className="text-sm lg:text-base text-gray-600">Training Courses</span>
               </div>
             </motion.div>
           </div>
           
-          <div className="md:col-span-5">
+          {/* Image Column */}
+          <div className="lg:col-span-5 mt-8 lg:mt-0">
             <motion.div 
-              className="relative"
+              className="relative mx-auto max-w-2xl lg:max-w-none"
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.3 }}
@@ -126,18 +133,41 @@ const Hero = () => {
                 "before:absolute before:inset-0 before:bg-gradient-to-tr before:from-primary/20 before:to-transparent before:z-10",
                 "animated-border"
               )}>
-                <img 
-                  src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81" 
-                  alt="AMP Training in action" 
-                  className="w-full h-auto object-cover aspect-[4/3]"
-                  loading="lazy"
-                />
+                <picture>
+                  {/* Mobile optimization */}
+                  <source
+                    media="(max-width: 640px)"
+                    srcSet={heroImage}
+                    sizes="(max-width: 640px) 100vw"
+                  />
+                  {/* Tablet optimization */}
+                  <source
+                    media="(max-width: 1024px)"
+                    srcSet={heroImage}
+                    sizes="(max-width: 1024px) 50vw"
+                  />
+                  {/* Desktop optimization */}
+                  <source
+                    media="(min-width: 1025px)"
+                    srcSet={heroImage}
+                    sizes="40vw"
+                  />
+                  {/* Fallback image */}
+                  <img 
+                    src={heroImage}
+                    alt="First Aid Training in action at AMP Training Solutions" 
+                    className="w-full h-auto object-cover aspect-[4/3]"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </picture>
               </div>
               
-              <div className="absolute -bottom-6 -right-6 h-24 w-24 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <div className="absolute -bottom-6 -right-6 h-20 w-20 sm:h-24 sm:w-24 bg-white rounded-full flex items-center justify-center shadow-lg">
                 <div className="text-center">
-                  <div className="font-bold text-xl text-primary">100%</div>
-                  <div className="text-xs text-gray-600">Certified</div>
+                  <div className="font-bold text-lg sm:text-xl text-primary">100%</div>
+                  <div className="text-xs sm:text-sm text-gray-600">Certified</div>
                 </div>
               </div>
             </motion.div>
